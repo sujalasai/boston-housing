@@ -13293,7 +13293,10 @@ Standard deviation of prices: $165171.13154429477
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Increase in 'RM' value should lead to increase in the value of 'MEDV'. Less value of LSTAT should lead to increase in the value of 'MEDV'. Also, increase in 'PTRATIO' should lead to increase in the value of 'MEDV'.</p>
+<p><strong>Answer: </strong> 
+1) Increase in 'RM' value should lead to increase in the value of 'MEDV'. This is because a home with more number of rooms will always cost more than a home with less number of rooms, as the cost of building many rooms  is more and also the built-up area would be more for a house with more number of rooms.
+2) Less value of LSTAT should lead to increase in the value of 'MEDV'. This is because if the neighbourhood has more number of low class people, then this would be least preferred for buying. So, automatically, the cost of the home with more low class people in the neighbourhood would definitely be less.
+3) Also, increase in 'PTRATIO' would lead to decrease in the value of 'MEDV'. People would generally prefer a home where the neighbourhood has less student to teacher ratio, as the quality of education will be better in this case. So, a home with a surrounding that has less PTRATIO would cost more than a home with surrounding that has more PTRATIO.</p>
 
 </div>
 </div>
@@ -13437,7 +13440,7 @@ Standard deviation of prices: $165171.13154429477
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> Yes, this model has successfully captured the variation of the target variable because it has an R2 score of 0.923, which means that 92.3% of the variance in Y is predictable from X.</p>
+<p><strong>Answer:</strong> Yes, this model has successfully captured the variation of the target variable because it has an R2 score of 0.923, which means that 92.3% of the variance in Y is predictable from X.This means that the data points will fall closer to the fitted regression line.But, as the R2 score is derived with only 5 data points, it is difficult to conclude that it is statistically significant.</p>
 
 </div>
 </div>
@@ -13587,7 +13590,7 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Max_depth 3: Here the training and testing scores seem to be converging after 150 points. The F1_score here appears to be around 0.8, which is a very good score. There is not much variation between the training and testing score beyond 200 points. Adding more data would definitely train the model better, but it comes with additional time and cost.</p>
+<p><strong>Answer: </strong> Max_depth 3: Here the training and testing scores seem to be converging after 150 points. The testing and training score here appears to be around 0.8, which is a very good score. There is not much variation and not much bias between the training and testing score beyond 200 points. Adding more data would definitely train the model better, but it comes with additional time and cost.</p>
 
 </div>
 </div>
@@ -13701,7 +13704,10 @@ Max_depth 10: This model suffers from high variance because it has performed ext
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Grid search technique is based on diving the data into training data, cross validation data and testing data. It uses hyper-parameters to plot the curve based on the training data and then uses F1 score on the cross validation data. The model with highest F1 score is then selected and considered to be the best model. For example, Support Vector Machine model uses 2 hyper-parameters (Kernel and gamma). A grid is then drawn against these hyper-parameters and a graph is drawn using the training model. F1-score is then calculated on the cross-validation data and the parameters with the highest F1-Score are used to obtain the best model.This is then validated and confirmed using the testing set.</p>
+<p><strong>Answer: </strong></p>
+<p>Grid search is an algorithm used to tune hyper-parameters of a model. We pass the hyper-parameters to tune, the possible values for each hyper-parameter and a performance metric (like R2 in our case above) as input to the grid search algorithm. The algorithm will then place all the possible hyper-parameter combination in a grid and then find the performance of the model for each combination against some cross-validation set. Then it outputs the hyper-parameter combination that gives the best result.</p>
+<p>Grid search performs hyperparameter optimization by selecting a grid of values, evaluating them and returning the result. This parameter sweep functionality of grid search can optimise a learning algorithm.</p>
+<p>Some examples of hyper-parameters include kernel, gamma for Support Vector Machine algorithm.</p>
 
 </div>
 </div>
@@ -13724,7 +13730,9 @@ Max_depth 10: This model suffers from high variance because it has performed ext
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> K-fold cross validation splits the data into k-buckets, then train the model k-times, each time using a different bucket as a testing set and the remaining buckets (k-1) as the training set. Then, we average the results to get the final model. K-fold cross validation has the benefit of not losing the training data set to testing. K-fold validation also reduces high variance which occurs because of splitting a data into training and testing datasets and chances of losing some of the training data to testing.</p>
+<p><strong>Answer: </strong></p>
+<p>k-fold validation first splits the data into train and test and then applies k-fold on the train dataset. This is how cross-validation works. Next, we train our model on (k-1) folds and use 1 fold for cross-validation. This process is repeated k times, each time with a different cross-validation set. The average cross-validation score is used to check the performance of the model. Once we have selected the best parameters using gridSearch along with k-fold cross-validation, we will use the test set to check the final performance of the model.
+k-fold cross validation reduces the variance of a single trial of a train/test split. This is a more reliable estimate than just the train/test split. Without k-fold cross-validation the risk is higher that grid search will select hyper-parameter value combinations that perform very well on a specific train-test split but poorly otherwise.</p>
 
 </div>
 </div>
@@ -13864,7 +13872,7 @@ DecisionTreeRegressor(criterion=&#39;mse&#39;, max_depth=4, max_features=None,
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> Hint: </strong> The answer comes from the output of the code snipped above.</p>
-<p><strong>Answer: </strong> max_depth is 4 for the optimal model.</p>
+<p><strong>Answer: </strong> max_depth is 4 for the optimal model. This is very close to the previous guess of 3. This might be because of adding the grid search algorithm in this current model.</p>
 
 </div>
 </div>
@@ -13959,6 +13967,14 @@ Predicted selling price for Client 3&#39;s home: $931,636.36
 Predicted selling price for Client 1's home: $403,025.00  ;  
 Predicted selling price for Client 2's home: $237,478.72  ;<br>
 Predicted selling price for Client 3's home: $931,636.36</p>
+<p>Minimum price: $105000.0
+Maximum price: $1024800.0
+Mean price: $454342.9447852761
+Median price $438900.0
+Standard deviation of prices: $165171.13154429477</p>
+<p>Client 1's home: The selling price is slightly below the mean price and median price. This seems reasonable because of the average poverty level and the student-teacher ratio.</p>
+<p>Client 2's home: Here also, the selling price is reasonable because of high poverty level and high student teacher ratio compared to client 1's home.</p>
+<p>Client 3's home: This value is too high which can be related to high number of rooms, low poverty level and good student teacher ratio.</p>
 
 </div>
 </div>
